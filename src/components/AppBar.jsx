@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
@@ -28,8 +28,10 @@ const AppBarTab = ({ text, link }) => {
 
 const AppBar = () => {
     return <View style={styles.container}>
-        <AppBarTab text={"I'm pressable!"} link={'/'} />
-        <AppBarTab text={"Sign in"} link={'/signin'}/>
+        <ScrollView horizontal>
+            <AppBarTab text={"Repositories"} link={'/'} />
+            <AppBarTab text={"Sign in"} link={'/signin'} />
+        </ScrollView>
     </View>
 };
 
