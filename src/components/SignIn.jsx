@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import SignInForm from './SignInForm';
 import * as yup from 'yup'
+import { useSignIn } from '../hooks/useSignIn';
 
 const initialValues = {
   user: '',
@@ -16,11 +17,20 @@ const validationSchema = yup.object().shape({
 });
 
 const SignIn = () => {
-  const onSubmit = values => {
-    const user = values.user;
-    const password = values.password;
 
-    console.log(`${user}`, `${password}`);
+
+  const [signIn, result] = useSignIn();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      await signIn({ username, password });
+
+      console.log(result.data.authenticate.accessToken);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
