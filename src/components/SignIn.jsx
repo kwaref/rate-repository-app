@@ -5,12 +5,12 @@ import { useSignIn } from '../hooks/useSignIn';
 import { useNavigate } from 'react-router-native';
 
 const initialValues = {
-  user: '',
+  username: '',
   password: '',
 };
 
 const validationSchema = yup.object().shape({
-  user: yup
+  username: yup
     .string()
     .required('Username is required'),
   password: yup.string()

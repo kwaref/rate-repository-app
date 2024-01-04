@@ -5,7 +5,7 @@ import useAuthStorage from './useAuthStorage';
 
 export const useSignIn = () => {
     const authStorage = useAuthStorage();
-    const apolloClient = useApolloClient()
+    const apolloClient = useApolloClient();
 
     const [login] = useMutation(LOGIN, {
         onError: error => {
